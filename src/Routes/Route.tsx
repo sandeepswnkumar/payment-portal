@@ -1,4 +1,5 @@
-import App from "@/App";
+import Layout from "@/components/Layout";
+import About from "@/pages/About";
 import {
     createBrowserRouter,
     RouterProvider,
@@ -7,11 +8,15 @@ import {
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <Layout />,
         children :[
             {
                 path: "about",
-                element: <div>About</div>,
+                element: <About />,
+            },
+            {
+                path: "test",
+                element: <h1>test page</h1>,
             }
         ]
     }

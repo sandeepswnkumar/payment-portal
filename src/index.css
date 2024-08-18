@@ -67,3 +67,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+*{
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+.sub-menu-item::before{
+  content: "";
+  border: thin solid rgb(156 163 175 / var(--tw-border-opacity));
+  width: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bcbfc3;    /* color of the scroll thumb */
+  border-radius: 5px;       /* roundness of the scroll thumb */
+  /* border: 3px solid orange;  creates padding around scroll thumb */
+}
