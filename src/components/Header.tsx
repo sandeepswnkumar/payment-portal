@@ -1,5 +1,5 @@
 import { Bell, Menu, Search } from 'lucide-react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,15 +16,44 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { Button } from "@/components/ui/button"
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleMenu } from '@/redux/PaymentPortalSlice';
+import Sidebar from './Sidebar';
 
 
 const Header: React.FC = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false)
+  const isSideMenuOpen = useSelector((state) => state.menuOpen)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.addEventListener('resize', function () {
+      if (this.innerWidth < 1023) {
+        setIsSmallScreen(true)
+      } else if (this.innerWidth > 1023) {
+        setIsSmallScreen(false)
+        dispatch(toggleMenu(false))
+      }
+    })
+  }, [])
   return (
     <div className='h-[65px] bg-slate-100 w-full flex justify-between items-center p-3'>
       <div>
         {
-          true ?
+          !isSmallScreen ?
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
@@ -39,12 +68,28 @@ const Header: React.FC = () => {
                   <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
-            </Breadcrumb> : <Menu />
+            </Breadcrumb> :
+
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" onClick={() => dispatch(toggleMenu(!isSideMenuOpen))}><Menu /></Button>
+              </SheetTrigger>
+              <SheetContent className='p-0 m-0'>
+                  <Sidebar />
+              </SheetContent>
+            </Sheet>
+
         }
       </div>
       <div className='flex items-center'>
-        <div className='me-3 flex items-center bg-white p-2 rounded-3xl'><Search className='w-5 h-5 me-2 text-gray-400' /> <input className='bg-transparent focus:outline-none' type="text" /></div>
+        {!isSmallScreen ?
+          <div className='me-3 flex items-center bg-white p-2 rounded-3xl'>
+            <Search className='w-5 h-5 me-2 text-gray-400' />
+            <input className='bg-transparent focus:outline-none' type="text" />
+          </div>
+          : null}
         <div className='flex items-center'>
+
           <Bell className='me-3' />
           <DropdownMenu>
             <DropdownMenuTrigger>
@@ -53,7 +98,7 @@ const Header: React.FC = () => {
                   <AvatarImage src="https://github.com/shadcn.png" />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <p>Sandeep</p>
+                {!isSmallScreen ? <p>Sandeep</p> : null}
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent>

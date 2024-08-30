@@ -9,7 +9,6 @@ const Main: React.FC = () => {
             <Header />
             <div className="relative flex-1 overflow-hidden">
                 <div className="absolute inset-0 overflow-auto bg-white rounded-xl p-4">
-                    
                     <Outlet />
                 </div>
             </div>

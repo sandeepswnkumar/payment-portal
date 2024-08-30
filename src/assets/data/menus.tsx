@@ -1,12 +1,13 @@
 
 import React from "react";
-import { LayoutDashboard } from "lucide-react";
+import { LayoutDashboard, Settings, User, Wallet } from "lucide-react";
 interface menuType {
     id: string;
     name: string;
-    route?: String
-    icon : React.ReactNode
-    subMenu : menuType[]
+    hide : Boolean;
+    route?: String;
+    icon : React.ReactNode;
+    subMenu : menuType[];
 
 }
 
@@ -14,6 +15,7 @@ const menus:menuType[] = [
     {
         id : crypto.randomUUID(),
         name : "Dashboard",
+        hide : false,
         route : '/',
         subMenu : [],
         icon : <LayoutDashboard /> ,
@@ -21,62 +23,70 @@ const menus:menuType[] = [
     {
         id : crypto.randomUUID(),
         name : "My Profile",
+        hide : false,
         route : '',
         subMenu : [
             {
                 id : crypto.randomUUID(),
                 name : "Account Detail",
-                route : '/account-detail',
+                route : 'account-detail',
+                hide : false,
                 subMenu : [],
-                icon : <LayoutDashboard /> ,
+                icon : '' ,
             },
             {
                 id : crypto.randomUUID(),
                 name : "Preferences",
                 route : '/preference',
+                hide : false,
                 subMenu : [],
-                icon : <LayoutDashboard /> ,
+                icon : '' ,
             },
             {
                 id : crypto.randomUUID(),
                 name : "User",
                 route : '/user',
+                hide : false,
                 subMenu : [],
-                icon : <LayoutDashboard /> ,
+                icon : '' ,
             }
 
         ],
-        icon : <LayoutDashboard /> ,
+        icon : <User /> ,
     },
     {
         id : crypto.randomUUID(),
         name : "Wallets",
+        hide : false,
         route : '',
         subMenu : [
             {
                 id : crypto.randomUUID(),
                 name : "Wallet Listing",
                 route : '/wallets',
+                hide : false,
                 subMenu : [],
-                icon : <LayoutDashboard /> ,
+                icon : '' ,
             },
             {
                 id : crypto.randomUUID(),
                 name : "Payment",
                 route : '/payments',
+                hide : false,
                 subMenu : [],
-                icon : <LayoutDashboard /> ,
+                icon : '' ,
             }
 
         ],
-        icon : <LayoutDashboard /> ,
+        icon : <Wallet /> ,
     },
     {
         id : crypto.randomUUID(),
         name : "Settings",
         route : '/settings',
+        hide : false,
         subMenu : [],
-        icon : <LayoutDashboard /> ,
+        icon : <Settings />,
     }
 ]
 export default menus;

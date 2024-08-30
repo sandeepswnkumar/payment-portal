@@ -1,4 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import PaymentPortalSlice from "./PaymentPortalSlice";
 
 
-export const store = configureStore();
+const store = configureStore({
+    reducer : PaymentPortalSlice
+});
+
+export default store;

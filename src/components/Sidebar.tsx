@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import assets from '@/assets/assets.ts'
 import { ChevronUpIcon, ChevronDownIcon, LayoutDashboard, LogOutIcon } from 'lucide-react'
+import SidebarMenus from './SidebarMenus'
 
 const Sidebar: React.FC = () => {
   useEffect(() => {
@@ -16,98 +17,15 @@ const Sidebar: React.FC = () => {
         </div>
 
         {/* Menus */}
-        <div className='flex h-[92%] flex-col justify-start items-start w-full mb-5 hover:overflow-auto overflow-hidden'>
-          <div className='flex flex-col justify-center items-start mb-5 w-full'>
-            <div className='flex justify-between main-menu w-full'>
-              <div className='flex '>
-                <LayoutDashboard />
-                <span className='ms-2'>My Profile</span>
-              </div>
-              {/* <ChevronUpIcon /> */}
-              <div><ChevronDownIcon /></div>
-            </div>
-          </div>
-          <div className='flex flex-col justify-center items-start mb-5 w-full'>
-            <div className='flex justify-between main-menu w-full'>
-              <div className='flex'>
-                <LayoutDashboard />
-                <span className='ms-2'>My Profile</span>
-              </div>
-              {/* <ChevronUpIcon /> */}
-              <div><ChevronDownIcon /></div>
-            </div>
-            <div className='sub-menu border-l-2 border-gray-400 ms-3 mt-3'>
-              <div className='flex sub-menu-item  justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-            </div>
-          </div>
-          <div className='flex flex-col justify-center items-start mb-5 w-full'>
-            <div className='flex justify-between main-menu w-full'>
-              <div className='flex'>
-                <LayoutDashboard />
-                <span className='ms-2'>My Profile</span>
-              </div>
-              {/* <ChevronUpIcon /> */}
-              <div><ChevronDownIcon /></div>
-            </div>
-            <div className='sub-menu border-l-2 border-gray-400 ms-3 mt-3'>
-              <div className='flex sub-menu-item  justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-            </div>
-          </div>
-          <div className='flex flex-col justify-center items-start mb-5 w-full'>
-            <div className='flex justify-between main-menu w-full'>
-              <div className='flex'>
-                <LayoutDashboard />
-                <span className='ms-2'>My Profile</span>
-              </div>
-              {/* <ChevronUpIcon /> */}
-              <div><ChevronDownIcon /></div>
-            </div>
-            <div className='sub-menu border-l-2 border-gray-400 ms-3 mt-3'>
-              <div className='flex sub-menu-item  justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-              <div className='flex sub-menu-item justify-center items-center mt-3'>
-                <span className='ms-2'>Account Details</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SidebarMenus />
       </div>
 
       {/* Setting */}
       <div className='w-full h-[5%]'>
-        <div className='flex h-full flex-col justify-start items-start w-full mb-5 hover:overflow-auto overflow-hidden'>
+        <div className='flex h-full flex-col justify-start items-start w-full mb-5 overflow-hidden'>
           <div className='flex flex-col justify-center items-start mb-5 w-full'>
             <div className='flex justify-between main-menu w-full'>
-              <div className='flex'>
+              <div className='flex cursor-pointer'>
                 <LogOutIcon />
                 <span className='ms-2'>Logout</span>
               </div>
