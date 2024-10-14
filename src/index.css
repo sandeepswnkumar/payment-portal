@@ -94,3 +94,15 @@ html{
   border-radius: 5px;       /* roundness of the scroll thumb */
   /* border: 3px solid orange;  creates padding around scroll thumb */
 }
+
+/* Chrome, Safari, Edge, Opera */
+.remove-input-arrow input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.remove-input-arrow input[type=number] {
+  -moz-appearance: textfield;
+}
